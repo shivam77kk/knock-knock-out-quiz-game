@@ -1,0 +1,296 @@
+body {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* Prevents image repetition */
+    background-attachment: fixed; /* Optional: Keeps image fixed on scroll */
+    height: 100vh; /* Full viewport height */
+    width: 100vw;
+    transition: background-image 1s ease-in-out;
+    overflow-x: hidden;
+    margin: 0;
+}
+
+
+
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 1rem;
+    /* Use rem for padding */
+    border-radius: 0.5rem;
+    /* Use rem for border-radius */
+    box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.3);
+    /* Use rem for box-shadow */
+    height: auto;
+    width: 80%;
+    max-width: 500px;
+    display: none;
+    box-sizing: border-box;
+    /* Include padding and border in the element's total width and height */
+    
+}
+
+
+/* Specific sizes for each container - REMOVE FIXED HEIGHTS */
+#userInputContainer {
+    background: #ffd700;
+    border: #ff8c00;
+    width: 90%;
+    max-width: 600px;
+    /* height: 75%; */
+    /*Remove fixed height*/
+    /* max-height: 350px; */
+    /*Remove fixed height*/
+}
+
+#startQuizContainer {
+    background: rgb(31, 4, 105);
+    color: white;
+    /* height: 70%; */
+    /*Remove fixed height*/
+    /* max-height: 350px; */
+    /*Remove fixed height*/
+    width: 80%;
+    max-width: 590px;
+}
+
+#loserContainer {
+    background: rgba(255, 0, 0, 0.9);
+    color: white;
+    /* height: 98%; */
+    /*Remove fixed height*/
+    /* max-height: 350px; */
+    /*Remove fixed height*/
+    width: 98%;
+    max-width: 600px;
+}
+
+#levelSelection {
+    background: rgba(8, 150, 180, 0.8);
+    width: 90%;
+    max-width: 605px;
+    /* height: 90%; */
+    /*Remove fixed height*/
+    /* max-height: 510px; */
+    /*Remove fixed height*/
+}
+
+#topicSelection {
+    background: rgba(8, 150, 180, 0.8);
+    width: 80%;
+    max-width: 505px;
+    /* height: 95%; */
+    /*Remove fixed height*/
+    /* max-height: 920px; */
+    /*Remove fixed height*/
+}
+
+#ghostAnimation {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    background-color: black;
+    /* Semi-transparent background */
+}
+
+#ghostImage {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50%;
+    /* Adjust as needed */
+    height: auto;
+    opacity: 0;
+    animation: ghostAppear 5s ease-in-out forwards;
+    /* 4 seconds animation */
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+@keyframes ghostAppear {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+}
+
+#quizContainer {
+    background: rgba(8, 180, 150, 0.8);
+    background-image: url(container\ backgound.jpeg);
+    /* height: 90%; */
+    /*Remove fixed height*/
+    /* max-height: 545px; */
+    /*Remove fixed height*/
+    width: 90%;
+    max-width: 600px;
+}
+
+#retryContainer {
+    background: rgb(255, 84, 84);
+    height: auto;
+    /* max-height: 400px; */
+    /*Remove fixed height*/
+    width: auto;
+    max-width: 550px;
+}
+
+#completionContainer {
+    background: rgba(50, 200, 50, 0.8);
+    height: auto;
+    width: 80%;
+    max-width: 450px;
+}
+
+
+.btn {
+    padding: 0.625rem 1.25rem;
+    margin: 0.625rem;
+    cursor: pointer;
+    font-size: 1.125rem;
+    border: none;
+    border-radius: 0.5rem;
+    transition: transform 0.1s ease, background 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.btn-enter {
+    background: #002147;
+    color: #ffffff;
+}
+
+.btn-enter:hover {
+    background: #003366;
+}
+
+.btn-option {
+    background: yellow;
+}
+
+.btn-option:hover {
+    background: gold;
+}
+
+/* Add this CSS class for level and topic selection buttons */
+.btn-level-topic {
+    width: 15.625rem;
+    /* Use rem for width */
+    height: 3.125rem;
+    /* Use rem for height */
+    font-size: 1.5rem;
+    /* Use rem for font-size */
+    margin: 0.625rem;
+    /* Use rem for margin */
+    padding: 0.625rem;
+    /* Use rem for padding */
+    text-align: center;
+    display: inline-block;
+}
+
+.btn-wrong {
+    background: red !important;
+}
+
+.btn-back {
+    background: orange;
+    color: white;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    filter: brightness(1.2);
+}
+
+/* Active effect */
+.btn:active {
+    transform: scale(0.95);
+    background-color: rgba(0, 0, 0, 0.2);
+    transition: transform 0.1s ease, background-color 0.2s ease;
+}
+
+.level-button {
+    display: none;
+}
+
+#timer {
+    font-size: 1.5rem;
+    /* Use rem for font-size */
+    font-weight: bold;
+    color: red;
+}
+
+.locked {
+    opacity: 0.5;
+    cursor: not-allowed;
+    pointer-events: none;
+    /* Disable click events */
+}
+
+
+/* Media Queries */
+@media (max-width: 768px) {
+    body {
+        background-size: contain; /* Adjusts for smaller screens */
+        background-position: cover;
+    }
+
+    .container {
+        width: 95%;
+        max-width: none;
+        /* Remove max-width on smaller screens */
+    }
+
+    .btn-level-topic {
+        width: 100%;
+        /* Make buttons full width on smaller screens */
+        margin: 0.3125rem 0;
+        /* Adjust margin */
+    }
+
+    #userInputContainer h2 {
+        font-size: 2rem;
+        /* Smaller heading */
+    }
+
+    #userInputContainer input[type="text"] {
+        font-size: 1.2rem;
+    }
+
+    #userInputContainer .btn {
+        font-size: 1.2rem;
+    }
+}
+
+@media (orientation: landscape) {
+    body {
+        background-size: cover;
+    }
+}
+
+@media (orientation: portrait) {
+    body {
+        background-size: contain;
+    }
+}

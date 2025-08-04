@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KKO Quiz Game</title>
+    <link rel="stylesheet" href="game.css">
+</head>
+
+<body>
+
+    <!-- Container for Entering Name -->
+    <div id="userInputContainer" class="container" style="font-size: 32px;">
+        <h2
+            style="color: purple;font-family: Georgia, 'Times New Roman', Times, serif;font-weight: bold; font-size: 44px;">
+            Enter Your
+            Name</h2>
+        <input type="text" id="username" placeholder="Your Name" style="font-size: 24px;"><br>
+        <button class="btn btn-enter" onclick="showStartQuiz()" style="font-size: 28px;">Enter</button>
+    </div>
+
+    <!-- Container for Start Quiz -->
+    <div id="startQuizContainer" class="container">
+        <h2 style="color: white;font-size: 46px;">Ready to start the Quiz ?</h2>
+        <button class="btn btn-enter" onclick="showLevelSelection()" style="font-size: 28px; background: #ff8c00;">Start
+            a Quiz</button>
+    </div>
+
+    <!-- Container for Level Selection -->
+    <div id="levelSelection" class="container">
+        <h2 style="font-family: Verdana, Geneva, Tahoma, sans-serif;font-weight: bold;font-size: 44px;">
+            Choose a Level</h2>
+        <button id="easyBtn" class="btn btn-option btn-level-topic"
+            onclick="showTopicSelection('easy')">Easy</button><br>
+        <button id="mediumBtn" class="btn btn-option btn-level-topic"
+            onclick="showTopicSelection('medium')">Medium</button><br>
+        <button id="hardBtn" class="btn btn-option btn-level-topic locked"
+            onclick="showTopicSelection('hard')">Hard</button>
+    </div>
+
+    <!-- Container for Topic Selection -->
+    <div id="topicSelection" class="container" style="font-size: 30px;">
+        <h2 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;font-weight: bold;font-size: 44px;">
+            Choose your Topic</h2>
+        <button class="btn btn-option btn-level-topic" onclick="startQuiz('Countries')"
+            style="gap: 5px;">Countries</button><br>
+        <button class="btn btn-option btn-level-topic" onclick="startQuiz('Entertainment')"
+            style="gap: 5px;">Entertainment</button><br>
+        <button class="btn btn-option btn-level-topic" onclick="startQuiz('Gk')" style="gap: 5px;">Gk</button><br>
+        <button class="btn btn-option btn-level-topic" onclick="startQuiz('History')"
+            style="gap: 5px;">History</button><br>
+        <button class="btn btn-option btn-level-topic" onclick="startQuiz('IT')" style="gap: 5px;">IT</button><br>
+        <button class="btn btn-option btn-level-topic" onclick="startQuiz('Maths')" style="gap: 5px;">Maths</button><br>
+        <button class="btn btn-option btn-level-topic" onclick="startQuiz('Science')">Science</button>
+    </div>
+
+    <!-- Add this inside the body tag, but outside other containers -->
+    <div id="ghostAnimation"
+        style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: 1000;">
+        <img id="ghostImage" src="ready for a quiz .jpg" alt="Ghost"
+            style="width: 40%; height: 40%; object-fit: cover; opacity: 0;">
+    </div>
+
+    <!-- Container for Quiz -->
+    <div id="quizContainer" class="container">
+        <h2 id="questionText"
+            style="font-family: sans-serif; font-size: 32px;font-weight: bold; color: #ffffff;text-shadow: 2px 2px 4px rgba(0, 0, 0, alpha0,5);">
+        </h2>
+        <div id="options"
+            style="font-size: 60px; font-family: Arial, Helvetica, sans-serif;display: flex;flex-direction: column;align-items: center;gap: 10px;">
+        </div>
+        <h3 id="scoreDisplay"></h3>
+    </div>
+
+    <div id="correctAnswerContainer" class="container"
+        style="display: none; font-size: 32px; background: rgba(0, 200, 0, 0.9); color: white;">
+        <h2 style="font-family: monospace;">Correct Answer</h2>
+        <p id="correctAnswerText" style="font-size: 28px; font-weight: bold;"></p>
+    </div>
+
+    <!-- Container for Wrong Answer Retry -->
+    <div id="retryContainer" class="container">
+        <h2
+            style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 40px;color: white;">
+            Oops! Wrong Answer. Try Again!</h2>
+        <button class="btn btn-option" onclick="retryQuestion('Try Again')"
+            style="font-size: 29px;background-color: darkred;color: whitesmoke;">Try Again </button>
+    </div>
+
+    <!-- Container for You're a Loser -->
+    <div id="loserContainer" class="container" style="background: rgba(255, 0, 0, 0.9); color: white;">
+        <h2
+            style="font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;font-size: 40px;color: white;">
+            You're a Loser! Time's Up!</h2>
+        <button class="btn btn-back" onclick="goToStartQuiz()"
+            style="font-size: 30px;background-color: darkred;color: whitesmoke;">Go to Start Quiz</button>
+    </div>
+
+
+    <!-- Container for Time Out -->
+    <div id="timeoutContainer" class="container">
+        <h2 style="font-size: 28px;font-family: sans-serif;font-weight: bold;">Time's Up! You're a Loser!</h2>
+        <button class="btn btn-back" onclick="backToUserInput()" style="font-size: 24px;">Back to User
+            Input</button>
+    </div>
+
+    <!-- Container for Level Completion -->
+    <div id="completionContainer" class="container" style="font-size: 32px;">
+        <h2 style="font-family: monospace;">Level Completed!</h2>
+        <h3 id="finalScore"></h3>
+        <button class="btn btn-back" onclick="goBackToLevels('Back')" style="font-size: 24px;">Back</button>
+    </div>
+
+    <script src="games.js"></script>
+
+</body>
+
+</html>
